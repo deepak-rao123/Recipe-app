@@ -24,6 +24,7 @@ const HomePage = () => {
 			console.log(error.message);
 		} finally {
 			setLoading(false);
+			
 		}
 	};
 

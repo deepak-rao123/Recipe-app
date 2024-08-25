@@ -19,6 +19,7 @@ const FavoritesPage = () => {
 					{favorites.map((recipe) => (
 						<RecipeCard key={recipe.label} recipe={recipe} {...getRandomColor()} />
 					))}
+					
 				</div>
 			</div>
 		</div>
