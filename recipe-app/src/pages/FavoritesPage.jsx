@@ -1,5 +1,5 @@
 import RecipeCard from "../components/RecipeCard";
-import { getRandomColor } from "../lib/utils";
+
 
 const FavoritesPage = () => {
 	const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
@@ -10,14 +10,14 @@ const FavoritesPage = () => {
 				<p className='font-bold text-3xl md:text-5xl my-4'>My Favorites</p>
 
 				{favorites.length === 0 && (
-					<div className='h-[80vh] flex flex-col items-center gap-4'>
-						<img src='/404.svg' className='h-3/4' alt='404 svg' />
+					<div className='h-[80vh] flex justify-center items-center'>
+					<p className=" text-xl text-slate-400"> you do not have any favorites</p>
 					</div>
 				)}
 
 				<div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
 					{favorites.map((recipe) => (
-						<RecipeCard key={recipe.label} recipe={recipe} {...getRandomColor()} />
+						<RecipeCard key={recipe.label} recipe={recipe} />
 					))}
 					
 				</div>

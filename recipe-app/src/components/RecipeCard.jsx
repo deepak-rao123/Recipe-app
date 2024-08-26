@@ -1,11 +1,11 @@
-import { Heart, HeartPulse, Soup } from "lucide-react";
+import { Heart, HeartPulse} from "lucide-react";
 import { useState } from "react";
 
 const getTwoValuesFromArray = (arr) => {
 	return [arr[0], arr[1]];
 };
 
-const RecipeCard = ({ recipe, bg, badge }) => {
+const RecipeCard = ({ recipe}) => {
 	const healthLabels = getTwoValuesFromArray(recipe.healthLabels);
 	const [isFavorite, setIsFavorite] = useState(localStorage.getItem("favorites")?.includes(recipe.label));
 
@@ -25,7 +25,7 @@ const RecipeCard = ({ recipe, bg, badge }) => {
 	};
 
 	return (
-		<div className={`flex flex-col rounded-md ${bg} overflow-hidden p-3 relative`}>
+		<div className={`flex flex-col rounded-md  overflow-hidden p-3 relative`}>
 			<a
 				href={`https://www.youtube.com/results?search_query=${recipe.label} recipe`}
 				target='_blank'
@@ -41,13 +41,7 @@ const RecipeCard = ({ recipe, bg, badge }) => {
 						e.currentTarget.previousElementSibling.style.display = "none";
 					}}
 				/>
-				<div
-					className='absolute bottom-2 left-2 bg-white rounded-full p-1 cursor-pointer flex items-center
-							 gap-1 text-sm
-							'
-				>
-					<Soup size={16} /> {recipe.yield} Servings
-				</div>
+				
 
 				<div
 					className='absolute top-1 right-2 bg-white rounded-full p-1 cursor-pointer'
@@ -70,7 +64,7 @@ const RecipeCard = ({ recipe, bg, badge }) => {
 
 			<div className='flex gap-2 mt-auto'>
 				{healthLabels.map((label, idx) => (
-					<div key={idx} className={`flex gap-1 ${badge} items-center p-1 rounded-md`}>
+					<div key={idx} className={`flex gap-1 items-center p-1 rounded-md`}>
 						<HeartPulse size={16} />
 						<span className='text-sm tracking-tighter font-semibold'>{label}</span>
 					</div>

@@ -1,7 +1,7 @@
 import { Search } from "lucide-react";
 import RecipeCard from "../components/RecipeCard";
 import { useEffect, useState } from "react";
-import { getRandomColor } from "../lib/utils";
+
 
 const APP_ID =import.meta.env.VITE_APP_ID;
 const APP_KEY = import.meta.env.VITE_APP_KEY;
@@ -29,7 +29,7 @@ const HomePage = () => {
 	};
 
 	useEffect(() => {
-		fetchRecipes("Paneer");
+		fetchRecipes("pasta");
 	}, []);
 
 	const handleSearchRecipe = (e) => {
@@ -57,7 +57,7 @@ const HomePage = () => {
 				<div className='grid gap-3 grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
 					{!loading &&
 						recipes.map(({ recipe }, index) => (
-							<RecipeCard key={index} recipe={recipe} {...getRandomColor()} />
+							<RecipeCard key={index} recipe={recipe}/>
 						))}
 
 					{loading &&
